@@ -22,10 +22,10 @@ $is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'et_pb_post' . $additional_class ); ?>>
 					<?php if ( ( 'off' !== $show_default_title && $is_page_builder_used ) || ! $is_page_builder_used ) { ?>
-						<div class="et_post_meta_wrapper">
+						<div class="et_post_meta_wrapper blog-image">
 
 						<?php
-							if ( ! post_password_required() ) :
+							if ( ! post_password_required() && ! has_category(29) ) :
 
 								//et_divi_post_meta();
 
