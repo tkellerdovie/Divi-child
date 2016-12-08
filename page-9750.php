@@ -19,7 +19,9 @@
 	<div class="container">
 		<div id="content-area" class="clearfix">
 		<?php
-			query_posts('cat=29&amp;showposts='.get_option('posts_per_page'));
+			$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+			$args = array('posts_per_page' => 10, 'paged' => $paged, 'cat' => 29 );
+			query_posts($args);
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post();
 					$post_format = et_pb_post_format();
